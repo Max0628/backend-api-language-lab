@@ -17,3 +17,7 @@ implementations/rust/target/
 implementations/csharp/bin/
 implementations/csharp/obj/
 implementations/csharp/TestResults/
+
+implementations/kotlin/.gradle/
+implementations/kotlin/build/
+implementations/kotlin/out/

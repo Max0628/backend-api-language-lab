@@ -1,0 +1,19 @@
+# Ktor API service image: build with Gradle and run on a smaller JRE image.
+FROM gradle:8.10-jdk21 AS builder
+
+WORKDIR /src
+COPY settings.gradle.kts build.gradle.kts gradle.properties ./
+COPY src ./src
+RUN gradle installDist --no-daemon
+
+FROM eclipse-temurin:21-jre
+
+RUN groupadd --system app \
+    && useradd --system --gid app app
+
+WORKDIR /app
+COPY --from=builder /src/build/install/backend-api-language-lab-kotlin ./
+
+USER app
+EXPOSE 8080
+ENTRYPOINT ["/app/bin/backend-api-language-lab-kotlin"]
