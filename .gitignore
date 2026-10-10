@@ -13,3 +13,7 @@ implementations/typescript/dist/
 implementations/typescript/coverage/
 
 implementations/rust/target/
+
+implementations/csharp/bin/
+implementations/csharp/obj/
+implementations/csharp/TestResults/
