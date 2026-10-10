@@ -21,3 +21,5 @@ implementations/csharp/TestResults/
 implementations/kotlin/.gradle/
 implementations/kotlin/build/
 implementations/kotlin/out/
+
+implementations/java/target/

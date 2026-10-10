@@ -1,0 +1,21 @@
+# Spring MVC API image: build with Maven and run on Java 17 JRE.
+FROM maven:3.9.9-eclipse-temurin-17 AS builder
+
+WORKDIR /src
+COPY pom.xml ./
+RUN mvn dependency:go-offline -DskipTests
+
+COPY src ./src
+RUN mvn package -Dmaven.test.skip=true
+
+FROM eclipse-temurin:17-jre
+
+RUN groupadd --system app \
+    && useradd --system --gid app app
+
+WORKDIR /app
+COPY --from=builder /src/target/backend-api-language-lab-java-0.1.0.jar /app/app.jar
+
+USER app
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
