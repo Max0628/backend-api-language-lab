@@ -1,0 +1,22 @@
+# Rust API service image: compile in a builder and run as a non-root user.
+FROM rust:1.88-bookworm AS builder
+
+WORKDIR /src
+COPY Cargo.toml ./
+COPY src ./src
+RUN cargo build --release
+
+FROM debian:bookworm-slim
+
+RUN apt-get update \
+    && apt-get install --no-install-recommends --yes ca-certificates \
+    && rm -rf /var/lib/apt/lists/* \
+    && addgroup --system app \
+    && adduser --system --ingroup app app
+
+WORKDIR /app
+COPY --from=builder /src/target/release/backend-api-language-lab-rust /app/server
+
+USER app
+EXPOSE 8080
+ENTRYPOINT ["/app/server"]
