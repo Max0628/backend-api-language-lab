@@ -1,0 +1,5 @@
+.git
+.env
+server
+*_test.go
+testdata
