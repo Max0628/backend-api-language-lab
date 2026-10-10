@@ -7,3 +7,9 @@ implementations/python/.venv/
 implementations/python/__pycache__/
 implementations/python/.pytest_cache/
 implementations/python/*.egg-info/
+
+implementations/typescript/node_modules/
+implementations/typescript/dist/
+implementations/typescript/coverage/
+
+implementations/rust/target/

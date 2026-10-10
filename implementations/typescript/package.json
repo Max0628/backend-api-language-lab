@@ -1,0 +1,27 @@
+{
+  "name": "backend-api-language-lab-typescript",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TypeScript Express implementation of the shared jobs API",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/main.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsx --test tests/**/*.test.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.15.21",
+    "@types/pg": "^8.15.2",
+    "typescript": "^5.8.3",
+    "tsx": "^4.19.3"
+  }
+}
