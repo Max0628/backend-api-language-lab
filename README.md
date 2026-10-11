@@ -13,8 +13,13 @@
 ## Implementations
 
 - [`implementations/go`](implementations/go)：Go + Gin + `database/sql` + pgx
-
-後續會加入 C#、C++、Rust、TypeScript、Python 與 Kotlin implementation。
+- [`implementations/python`](implementations/python)：Python + FastAPI + psycopg
+- [`implementations/rust`](implementations/rust)：Rust + Axum + SQLx
+- [`implementations/typescript`](implementations/typescript)：TypeScript + Express + pg
+- [`implementations/csharp`](implementations/csharp)：C# + ASP.NET Core + Npgsql
+- [`implementations/kotlin`](implementations/kotlin)：Kotlin + Ktor + JDBC/HikariCP
+- [`implementations/java17`](implementations/java17)：Java 17 + Spring MVC + JDBC
+- [`implementations/cpp-drogon`](implementations/cpp-drogon)：C++17 + Drogon + PostgreSQL `DbClient`
 
 ## 環境設定
 

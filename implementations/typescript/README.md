@@ -42,3 +42,9 @@ podman run --rm \
 podman build -f implementations/typescript/Containerfile -t backend-api-typescript implementations/typescript
 podman run --rm --name backend-api-typescript --env-file .env -p 8080:8080 backend-api-typescript
 ```
+
+## API 測試
+
+```bash
+curl "http://localhost:8080/jobs?page=1&page_size=30"
+```

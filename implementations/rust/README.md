@@ -18,18 +18,29 @@ Repository 使用 SQLx raw SQL 與 parameter binding，不使用 ORM；sort colu
 
 ## 本地檢查
 
-Mac 尚未安裝 Rust toolchain 時，可使用 Podman：
+Mac 尚未安裝 Rust toolchain 時，可使用 Podman build：
 
 ```bash
-cd implementations/rust
-podman build -f Containerfile -t backend-api-rust .
+podman build \
+  -f implementations/rust/Containerfile \
+  -t localhost/backend-api-rust:latest \
+  implementations/rust
 ```
 
 啟動 API：
 
 ```bash
-cd ../..
-podman run --rm --name backend-api-rust -p 8080:8080 backend-api-rust
+podman run --rm \
+  --name backend-api-rust \
+  --env-file .env \
+  -p 8080:8080 \
+  localhost/backend-api-rust:latest
+```
+
+## API 測試
+
+```bash
+curl "http://localhost:8080/jobs?page=1&page_size=30"
 ```
 
 Rust toolchain 可用後，常用檢查為：

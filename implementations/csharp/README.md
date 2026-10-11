@@ -34,3 +34,9 @@ podman run --rm \
   -p 8080:8080 \
   backend-api-csharp
 ```
+
+## API 測試
+
+```bash
+curl "http://localhost:8080/jobs?page=1&page_size=30"
+```

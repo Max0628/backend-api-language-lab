@@ -42,6 +42,29 @@ cd implementations/go
 go run ./cmd/server
 ```
 
+## Podman
+
+```bash
+podman build \
+  -f implementations/go/Containerfile \
+  -t localhost/backend-api-go:latest \
+  implementations/go
+```
+
+```bash
+podman run --rm \
+  --name backend-api-go \
+  --env-file .env \
+  -p 8080:8080 \
+  localhost/backend-api-go:latest
+```
+
+## API 測試
+
+```bash
+curl "http://localhost:8080/jobs?page=1&page_size=30"
+```
+
 ## 檢查與測試
 
 ```bash

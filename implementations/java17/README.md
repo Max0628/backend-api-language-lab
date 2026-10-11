@@ -20,9 +20,9 @@
 
 ```bash
 podman build --no-cache \
-  -f implementations/java/Containerfile \
+  -f implementations/java17/Containerfile \
   -t localhost/backend-api-java:latest \
-  implementations/java
+  implementations/java17
 ```
 
 ```bash
@@ -31,4 +31,10 @@ podman run --rm \
   --env-file .env \
   -p 8080:8080 \
   localhost/backend-api-java:latest
+```
+
+## API 測試
+
+```bash
+curl "http://localhost:8080/jobs?page=1&page_size=30"
 ```

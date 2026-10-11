@@ -62,3 +62,9 @@ uvicorn app.main:app --host 0.0.0.0 --port 8080
 podman build -f implementations/python/Containerfile -t backend-api-python implementations/python
 podman run --rm --name backend-api-python --env-file .env -p 8080:8080 backend-api-python
 ```
+
+## API 測試
+
+```bash
+curl "http://localhost:8080/jobs?page=1&page_size=30"
+```

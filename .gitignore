@@ -22,4 +22,6 @@ implementations/kotlin/.gradle/
 implementations/kotlin/build/
 implementations/kotlin/out/
 
-implementations/java/target/
+implementations/java17/target/
+
+implementations/cpp-drogon/build/
